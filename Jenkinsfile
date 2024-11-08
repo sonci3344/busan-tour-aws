@@ -15,7 +15,7 @@ pipeline {
         stage('Git Clone') {
             steps {
                 echo 'Git Clone'
-                git url: 'https://github.com/Hyunkyoungkang/busan-tour-on.git',
+                git url: 'https://github.com/Hyunkyoungkang/Project_DiB.git',
                 branch: 'main', credentialsId: 'gitToken'
             }
             post {
