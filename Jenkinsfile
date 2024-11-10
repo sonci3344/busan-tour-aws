@@ -1,28 +1,5 @@
 pipeline {
-    agent {
-             kubernetes { 
-            yaml"""
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "build-app-${BUILD_NUMBER}"
-spec:
-  serviceAccountName: kubectl
-  containers:
-  - name: docker
-    image: docker:dind
-    tty: true
-    securityContext:
-      privileged: true
-  - name: kubectl
-    image: lachlanevenson/k8s-kubectl:latest
-    tty: true
-    command:
-      - "sleep"
-      - "infinity"
-"""
-        }
-    }
+    agent any
     
     tools {
         jdk 'jdk17'
