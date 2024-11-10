@@ -45,8 +45,8 @@ pipeline {
 
                 dir("${env.WORKSPACE}") {
                     sh """
-                       docker build -t hyunkyoungkang/Project_DiB:$BUILD_NUMBER .
-                       docker tag hyunkyoungkang/Project_DiB:$BUILD_NUMBER hyunkyoungkang/Project_DiB:latest
+                       docker build -t hyunkyoungkang/project_bid:$BUILD_NUMBER .
+                       docker tag hyunkyoungkang/project_bid:$BUILD_NUMBER hyunkyoungkang/project_bid:latest
                     """
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
         stage('Docker Image Push') {
             steps {
                 echo 'Docker Image Push'  
-                sh "docker push hyunkyoungkang/Project_DiB:latest"  // docker push
+                sh "docker push hyunkyoungkang/project_bid:latest"  // docker push
             }
         }
         stage('Cleaning up') { 
@@ -69,8 +69,8 @@ pipeline {
               // docker image 제거
               echo 'Cleaning up unused Docker images on Jenkins server'
               sh """
-                  docker rmi hyunkyoungkang/Project_DiB:$BUILD_NUMBER
-                  docker rmi hyunkyoungkang/Project_DiB:latest
+                  docker rmi hyunkyoungkang/project_bid:$BUILD_NUMBER
+                  docker rmi hyunkyoungkang/project_bid:latest
               """
            }
         }
