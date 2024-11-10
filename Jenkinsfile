@@ -4,7 +4,6 @@ pipeline {
     tools {
         jdk 'jdk17'
         gradle 'G3'
-        dockerTool 'D3'
     }
 
     environment { 
