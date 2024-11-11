@@ -36,7 +36,7 @@ public class MemberController {
 
     @GetMapping("/join")
     public String join() {
-        return "/member/join";
+        return "member/join";
     }
 
     @GetMapping("/login")
