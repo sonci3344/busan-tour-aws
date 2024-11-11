@@ -12,7 +12,7 @@ public class MainController {
 
     @GetMapping("/")
     public String index() {
-        return "/index";
+        return "index";
     }
 
     @GetMapping("/board/read")
