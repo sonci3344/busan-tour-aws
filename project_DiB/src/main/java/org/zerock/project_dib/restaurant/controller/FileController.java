@@ -16,7 +16,7 @@ import java.nio.file.Files;
 public class FileController {
 
     @Value("${org.zerock.upload.path}")
-    private String uploadPath = /var/upload;
+    private String uploadPath
 
     @GetMapping("/view/{fileName}")
     public ResponseEntity<Resource> viewFileGET(@PathVariable String fileName){
