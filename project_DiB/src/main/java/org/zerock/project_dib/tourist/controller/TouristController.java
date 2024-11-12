@@ -48,7 +48,7 @@ public class TouristController {
 
         model.addAttribute("list", list);
 
-        return "/tourist/list";
+        return "tourist/list";
     }
 
     @GetMapping("/read/{tno}")
