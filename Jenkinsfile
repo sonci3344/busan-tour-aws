@@ -16,7 +16,7 @@ pipeline {
         stage('Git Clone') {
             steps {
                 echo 'Git Clone'
-                git url: 'https://github.com/Hyunkyoungkang/busan-tour.git',
+                git url: 'https://github.com/Hyunkyoungkang/busan-tour-aws.git',
                 branch: 'main', credentialsId: 'gitToken'
             }
             post {
@@ -45,8 +45,8 @@ pipeline {
                 echo 'Docker Image build'                
                 dir("${env.WORKSPACE}") {
                     sh """
-                       docker build -t hyunkyoungkang/busan-tour:$BUILD_NUMBER .
-                       docker tag hyunkyoungkang/busan-tour:$BUILD_NUMBER hyunkyoungkang/busan-tour:latest
+                       docker build -t hyunkyoungkang/busan-tour-aws:$BUILD_NUMBER .
+                       docker tag hyunkyoungkang/busan-tour-aws:$BUILD_NUMBER hyunkyoungkang/busan-tour-aws:latest
                     """
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
         stage('Docker Image Push') {
             steps {
                 echo 'Docker Image Push'  
-                sh "docker push hyunkyoungkang/busan-tour:latest"  // docker push
+                sh "docker push hyunkyoungkang/busan-tour-aws:latest"  // docker push
             }
         }
         stage('Cleaning up') { 
@@ -69,8 +69,8 @@ pipeline {
               // docker image 제거
               echo 'Cleaning up unused Docker images on Jenkins server'
               sh """
-                  docker rmi hyunkyoungkang/busan-tour:$BUILD_NUMBER
-                  docker rmi hyunkyoungkang/busan-tour:latest
+                  docker rmi hyunkyoungkang/busan-tour-aws:$BUILD_NUMBER
+                  docker rmi hyunkyoungkang/busan-tour-aws:latest
               """
             }
         }
