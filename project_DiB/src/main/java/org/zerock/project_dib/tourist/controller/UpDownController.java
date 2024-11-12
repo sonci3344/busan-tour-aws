@@ -28,7 +28,7 @@ public class UpDownController {
   @Value("${org.zerock.upload.path}")
   private String uploadPath = "/var/upload";
 
-  @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+  @PostMapping(value = "/var/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
   public List<UploadResultDTO> upload(UploadFileDTO uploadFileDTO) {
     log.info(uploadFileDTO);
     //파일이 있을 경우만 실행하도록 만들어주는 if문
