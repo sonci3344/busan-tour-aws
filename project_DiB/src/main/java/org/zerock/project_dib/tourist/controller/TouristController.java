@@ -57,7 +57,7 @@ public class TouristController {
         TouristDTO dto = touristService.read(tno);
         dto.setFileNames(fileNames);
         model.addAttribute("dto", dto);
-        return "/tourist/read";
+        return "tourist/read";
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
@@ -89,7 +89,7 @@ public class TouristController {
         touristDTO.setTno(tno);
         TouristDTO dto = touristService.read(tno);
         model.addAttribute("dto", dto);
-        return "/tourist/modify";
+        return "tourist/modify";
 
     }
 
