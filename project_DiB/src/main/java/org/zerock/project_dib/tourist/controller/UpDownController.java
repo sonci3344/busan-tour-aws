@@ -26,7 +26,7 @@ import java.util.*;
 @Log4j2
 public class UpDownController {
   @Value("${org.zerock.upload.path}")
-  private String uploadPath = "c:\\upload";
+  private String uploadPath = "c:\upload";
 
   @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
   public List<UploadResultDTO> upload(UploadFileDTO uploadFileDTO) {
